@@ -1,0 +1,216 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --header: #1d4ed8;
+  --header-dark: #1e40af;
+  --border: #e5e7eb;
+  --error: #dc2626;
+  --personal: #0d9488;
+  --work: #991b1b;
+  --study: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--header);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+header p {
+  color: #dbeafe;
+}
+
+main {
+  width: min(700px, 100% - 2rem);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+section {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+section h2 {
+  margin-bottom: 1rem;
+}
+
+#note-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group,
+.search-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 180px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #93c5fd;
+  border-color: var(--header);
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  color: white;
+  background: var(--header);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: var(--header-dark);
+  transform: translateY(-1px);
+}
+
+.error {
+  color: var(--error);
+  min-height: 1.5rem;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+#note-count {
+  color: var(--muted);
+  margin: 1rem 0;
+}
+
+#notes-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.note-card {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--border);
+  border-radius: 10px;
+  margin: 0;
+  background: #fff;
+}
+
+.category-personal {
+  border-left-color: var(--personal);
+}
+
+.category-work {
+  border-left-color: var(--work);
+}
+
+.category-study {
+  border-left-color: var(--study);
+}
+
+.note-text {
+  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.note-category {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.note-date {
+  flex: 1;
+}
+
+.delete-btn {
+  background: #ef4444;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  #note-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  main {
+    width: min(100% - 1rem, 700px);
+    margin: 1rem auto;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .note-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .delete-btn {
+    width: 100%;
+  }
+}
